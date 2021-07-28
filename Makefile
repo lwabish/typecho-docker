@@ -1,9 +1,12 @@
 repo=lwabish
 
-default: image push kube_update
-prepare_typecho:
-	git clone https://github.com/lwabish/typecho.git
+default: prepare_typecho update_typecho image push kube_update
 
+prepare_typecho:
+	if [ ! -d ./typecho ];then git clone https://github.com/lwabish/typecho.git;fi
+
+update_typecho:
+	cd typecho && git pull && cd ..
 image:
 	docker build -t typecho .
 
