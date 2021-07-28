@@ -47,7 +47,8 @@ echo "**** Make sure the /data folders exist ****"
 	[ -e /data/config.inc.php ] &&
 	ln -sf /data/config.inc.php /app/config.inc.php &&
 	ln -sf /data/favicon.ico /app/favicon.ico &&
-	echo "**** Create the symbolic link for config.inc.php ****"
+	ln -sf /data/robots.txt /app/robots.txt &&
+	echo "**** Create the symbolic link for config.inc.php & favicon.ico & robots.txt****"
 
 #fixup __TYPECHO_SITE_URL__
 if [ -e /data/config.inc.php ] && ! grep -q '__TYPECHO_SITE_URL__' /data/config.inc.php; then
